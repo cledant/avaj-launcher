@@ -2,7 +2,7 @@ package fr.avaj_launcher.vehicule_observer;
 
 import fr.avaj_launcher.vehicule.Flyable;
 
-public class Tower
+public abstract class Tower
 {
     /*
         Attribute
