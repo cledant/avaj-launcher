@@ -39,7 +39,7 @@ public class WeatherProvider
 	{
 		int tmp = (this.seed_x - coordinates.getLongitude()) + (this.seed_y - coordinates.getLatitude()) +
 				(this.seed_z - coordinates.getHeight());
-		return (weather[tmp % 4]);
+		return (weather[Math.abs(tmp % 4)]);
 	}
 
 	public void newSeed()

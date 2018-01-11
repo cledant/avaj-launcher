@@ -27,22 +27,21 @@ public class Main
 			tmp = factory.newAircraft("JetPlane", "Totor", -200, 200, 50);
 			System.out.println("Registering Weather Tower to JetPlane");
 			tmp.registerTower(wt);
-			System.out.println("Registering JetPlane to Tower");
-			wt.register(tmp);
 
 			System.out.println("Generating Baloon");
 			tmp = factory.newAircraft("Baloon", "Toto", 200, -200, 99);
+			System.out.println("Registering Weather Tower to Baloon");
 			tmp.registerTower(wt);
-			wt.register(tmp);
 
 			System.out.println("Generating Helicopter");
 			tmp = factory.newAircraft("Helicopter", "Peon", 200, 400, 30);
+			System.out.println("Registering Weather Tower to Helicopter");
 			tmp.registerTower(wt);
-			wt.register(tmp);
 
 			System.out.println("Running Simulation");
 			for (int i = nb_iter; i > 0; i--)
 				wt.changeWeather();
+			System.out.println("Simulation Ended");
 		}
 		catch (Exception e)
 		{

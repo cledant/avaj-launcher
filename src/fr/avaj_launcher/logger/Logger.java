@@ -26,12 +26,16 @@ public class Logger
 	public static Logger getLogger() throws FileNotFoundException, IOException
 	{
 		if (logger == null)
+		{
+			System.out.println("Generating Logger");
 			logger = new Logger();
+		}
 		return (logger);
 	}
 
 	public void printMessage(String msg) throws IOException
 	{
+		System.out.println(msg);
 		this.printWriter.println(msg);
 	}
 }
