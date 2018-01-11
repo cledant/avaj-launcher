@@ -17,7 +17,8 @@ public class Helicopter extends Aircraft implements Flyable
 		Attributes
 	 */
 
-	WeatherTower weatherTower = null;
+	private WeatherTower weatherTower = null;
+	String identifier;
 
 	/*
 		Constructor
@@ -26,6 +27,7 @@ public class Helicopter extends Aircraft implements Flyable
 	public Helicopter(String name, Coordinates coordinates) throws TooMuchAircraftException
 	{
 		super(name, coordinates);
+		this.identifier = "Helicopter#" + this.name + "(" + String.valueOf(this.id) + ")";
 	}
 
 	/*
@@ -37,6 +39,7 @@ public class Helicopter extends Aircraft implements Flyable
 	{
 		this.weatherTower = weatherTower;
 		this.weatherTower.register(this);
+		Logger.getLogger().printMessage("Tower says : " + this.identifier + " registered to Weather Tower");
 	}
 
 	@Override
@@ -47,39 +50,42 @@ public class Helicopter extends Aircraft implements Flyable
 		String weather = this.weatherTower.getWeather(this.coordinates);
 		if (weather.compareTo("SUN") == 0)
 		{
-			this.coordinates.setLongitude(this.coordinates.getLongitude() + 10);
-			this.coordinates.setHeight(this.coordinates.getHeight() + 2);
-			Logger.getLogger().printMessage(this.generateIdentifier() + ": SUN");
+			this.coordinates = new Coordinates(this.coordinates.getLongitude() + 10,
+					this.coordinates.getLatitude(), this.coordinates.getHeight() + 2);
+			Logger.getLogger().printMessage(this.identifier + ": SUN");
 		}
 		else if (weather.compareTo("RAIN") == 0)
 		{
-			this.coordinates.setLongitude(this.coordinates.getLongitude() + 5);
-			Logger.getLogger().printMessage(this.generateIdentifier() + ": RAIN");
+			this.coordinates = new Coordinates(this.coordinates.getLongitude() + 5,
+					this.coordinates.getLatitude(), this.coordinates.getHeight());
+			Logger.getLogger().printMessage(this.identifier + ": RAIN");
 		}
 		else if (weather.compareTo("FOG") == 0)
 		{
-			this.coordinates.setLongitude(this.coordinates.getLongitude() + 1);
-			Logger.getLogger().printMessage(this.generateIdentifier() + ": FOG");
+			this.coordinates = new Coordinates(this.coordinates.getLongitude() + 1,
+					this.coordinates.getLatitude(), this.coordinates.getHeight());
+			Logger.getLogger().printMessage(this.identifier + ": FOG");
 		}
 		else if (weather.compareTo("SNOW") == 0)
 		{
-			this.coordinates.setHeight(this.coordinates.getHeight() - 12);
-			Logger.getLogger().printMessage(this.generateIdentifier() + ": SNOW");
+			this.coordinates = new Coordinates(this.coordinates.getLongitude(),
+					this.coordinates.getLatitude(), this.coordinates.getHeight() - 12);
+			Logger.getLogger().printMessage(this.identifier + ": SNOW");
 		}
 		else
 			throw new UnknownWeatherException();
+		System.out.println("DEBUT");
 		if (this.coordinates.getHeight() > 100)
-			this.coordinates.setHeight(100);
+			this.coordinates = new Coordinates(this.coordinates.getLongitude(), this.coordinates.getLongitude(),
+					100);
 		else if (this.coordinates.getHeight() <= 0)
+		{
+			this.coordinates = new Coordinates(this.coordinates.getLongitude(), this.coordinates.getLongitude(), 0);
+			Logger.getLogger().printMessage("Tower says : " + this.identifier + " unregistered from Weather Tower");
+			Logger.getLogger().printMessage(this.identifier + " : Landing coordinate = " + this.coordinates.getLongitude() +
+					" " + this.coordinates.getLatitude() + " " + this.coordinates.getHeight());
 			this.weatherTower.unregister(this);
-	}
-
-	@Override
-	public String generateIdentifier()
-	{
-		String tmp;
-
-		tmp = "Helicopter#" + this.name + "(" + String.valueOf(this.id) + ")";
-		return (tmp);
+		}
+		System.out.println("FIN");
 	}
 }

@@ -13,7 +13,7 @@ public class Main
 		AircraftFactory factory = null;
 		Flyable tmp = null;
 		WeatherTower wt = null;
-		int nb_iter = 5;
+		int nb_iter = 20;
 
 		try
 		{

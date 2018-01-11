@@ -32,7 +32,7 @@ public abstract class Aircraft
 	private static long nextId() throws TooMuchAircraftException
 	{
 		idCounter++;
-		if (idCounter == 0)
+		if (idCounter <= 0)
 			throw new TooMuchAircraftException();
 		return (idCounter);
 	}

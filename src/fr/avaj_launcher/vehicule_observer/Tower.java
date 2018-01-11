@@ -34,25 +34,30 @@ public abstract class Tower
 	public void register(Flyable flyable) throws IOException
 	{
 		this.observers.add(flyable);
-		Logger.getLogger().printMessage("Tower says : " + flyable.generateIdentifier() + " registered to Weather Tower");
 	}
 
 	public void unregister(Flyable flyable) throws IOException
 	{
-		this.observers.remove(flyable);
-		Logger.getLogger().printMessage("Tower says : " + flyable.generateIdentifier() + " unregistered from Weather Tower");
+		System.out.println("AAA");
+		System.out.println(this.observers.remove(flyable));
+		System.out.println(this.observers);
+		System.out.println("BBB");
 	}
 
 	protected void conditionsChanged() throws IOException, UnknownWeatherException, UnregisteredTowerException
 	{
 		ListIterator<Flyable> lit = this.observers.listIterator();
+		Flyable tmp = null;
+		boolean loop = lit.hasNext();
 
-		System.out.println("IT 1");
-		while (lit.hasNext())
+		while (loop)
 		{
-			Flyable tmp = lit.next();
+			tmp = lit.next();
+			loop = lit.hasNext();
+			System.out.println(loop);
 			System.out.println(tmp);
 			tmp.updateConditions();
+			System.out.println(this.observers);
 		}
 	}
 }
