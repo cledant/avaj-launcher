@@ -10,15 +10,28 @@ public class Logger
 	private static Logger logger = null;
 	private PrintWriter printWriter;
 
-	public static Logger getInstance() throws FileNotFoundException, IOException
+	/*
+		Constructor
+	 */
+
+	private Logger() throws FileNotFoundException, IOException
+	{
+		printWriter = new PrintWriter("./simulation.txt");
+	}
+
+	/*
+		Methods
+	 */
+
+	public static Logger getLogger() throws FileNotFoundException, IOException
 	{
 		if (logger == null)
 			logger = new Logger();
 		return (logger);
 	}
 
-	private Logger() throws FileNotFoundException, IOException
+	public void printMessage(String msg) throws IOException
 	{
-		printWriter = new PrintWriter("./simulation.txt");
+		this.printWriter.println(msg);
 	}
 }

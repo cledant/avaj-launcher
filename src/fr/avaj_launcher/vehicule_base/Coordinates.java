@@ -1,9 +1,9 @@
-package fr.avaj_launcher.vehicule;
+package fr.avaj_launcher.vehicule_base;
 
 public class Coordinates
 {
 	/*
-        Attributes
+		Attributes
      */
 
 	private int longitude;
@@ -11,7 +11,7 @@ public class Coordinates
 	private int height;
 
     /*
-        Constructor
+		Constructor
      */
 
 	public Coordinates(int longitude, int latitude, int height)
@@ -22,7 +22,7 @@ public class Coordinates
 	}
 
     /*
-        Methods
+		Methods
      */
 
 	public int getLongitude()
@@ -38,5 +38,20 @@ public class Coordinates
 	public int getHeight()
 	{
 		return (this.height);
+	}
+
+	public void setLongitude(int longitude)
+	{
+		this.longitude = longitude;
+	}
+
+	public void setLatitude(int latitude)
+	{
+		this.latitude = latitude;
+	}
+
+	public void setHeight(int height)
+	{
+		this.height = height;
 	}
 }

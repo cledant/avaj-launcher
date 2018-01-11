@@ -1,4 +1,4 @@
-package fr.avaj_launcher.vehicule;
+package fr.avaj_launcher.vehicule_base;
 
 import fr.avaj_launcher.exception.TooMuchAircraftException;
 

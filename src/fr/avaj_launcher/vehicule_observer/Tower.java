@@ -3,7 +3,7 @@ package fr.avaj_launcher.vehicule_observer;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import fr.avaj_launcher.vehicule.Flyable;
+import fr.avaj_launcher.vehicule_base.Flyable;
 
 public abstract class Tower
 {
