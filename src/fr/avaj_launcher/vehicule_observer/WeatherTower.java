@@ -5,17 +5,17 @@ import fr.avaj_launcher.weather_control.WeatherProvider;
 
 public class WeatherTower extends Tower
 {
-    /*
-        Method
+	/*
+		Methods
      */
 
-    public String getWeather(Coordinates coordinates)
-    {
-        return (WeatherProvider.getProvider().getCurrentWeather(coordinates));
-    }
+	public String getWeather(Coordinates coordinates)
+	{
+		return (WeatherProvider.getProvider().getCurrentWeather(coordinates));
+	}
 
-    public void changeWeather()
-    {
-        WeatherProvider.getProvider().newSeed();
-    }
+	public void changeWeather()
+	{
+		WeatherProvider.getProvider().newSeed();
+	}
 }

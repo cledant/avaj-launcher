@@ -2,41 +2,41 @@ package fr.avaj_launcher.vehicule;
 
 public class Coordinates
 {
-    /*
-        Attibutes
+	/*
+        Attributes
      */
 
-    private int longitude;
-    private int latitude;
-    private int height;
+	private int longitude;
+	private int latitude;
+	private int height;
 
     /*
         Constructor
      */
 
-    public Coordinates(int longitude, int latitude, int height)
-    {
-        this.longitude = longitude;
-        this.latitude = latitude;
-        this.height = height;
-    }
+	public Coordinates(int longitude, int latitude, int height)
+	{
+		this.longitude = longitude;
+		this.latitude = latitude;
+		this.height = height;
+	}
 
     /*
-        Methodes
+        Methods
      */
 
-    public int getLongitude()
-    {
-        return (this.longitude);
-    }
+	public int getLongitude()
+	{
+		return (this.longitude);
+	}
 
-    public int getLatitude()
-    {
-        return (this.latitude);
-    }
+	public int getLatitude()
+	{
+		return (this.latitude);
+	}
 
-    public int getHeight()
-    {
-        return (this.height);
-    }
+	public int getHeight()
+	{
+		return (this.height);
+	}
 }

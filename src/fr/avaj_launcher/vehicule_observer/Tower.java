@@ -4,25 +4,25 @@ import fr.avaj_launcher.vehicule.Flyable;
 
 public abstract class Tower
 {
-    /*
-        Attribute
+	/*
+        Attributes
      */
 
-    private Flyable[] observers;
+	private Flyable[] observers;
 
     /*
-        Methode
+        Methods
      */
 
-    public void register(Flyable flyable)
-    {
-    }
+	public void register(Flyable flyable)
+	{
+	}
 
-    public void unregister(Flyable flyable)
-    {
-    }
+	public void unregister(Flyable flyable)
+	{
+	}
 
-    protected void conditionsChanged()
-    {
-    }
+	protected void conditionsChanged()
+	{
+	}
 }
