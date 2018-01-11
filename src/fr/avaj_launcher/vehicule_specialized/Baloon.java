@@ -11,7 +11,7 @@ import fr.avaj_launcher.vehicule_observer.WeatherTower;
 
 import java.io.IOException;
 
-public class Helicopter extends Aircraft implements Flyable
+public class Baloon extends Aircraft implements Flyable
 {
 	/*
 		Attributes
@@ -23,7 +23,7 @@ public class Helicopter extends Aircraft implements Flyable
 		Constructor
 	 */
 
-	public Helicopter(String name, Coordinates coordinates) throws TooMuchAircraftException
+	public Baloon(String name, Coordinates coordinates) throws TooMuchAircraftException
 	{
 		super(name, coordinates);
 	}
@@ -47,23 +47,23 @@ public class Helicopter extends Aircraft implements Flyable
 		String weather = this.weatherTower.getWeather(this.coordinates);
 		if (weather.compareTo("SUN") == 0)
 		{
-			this.coordinates.setLongitude(this.coordinates.getLongitude() + 10);
-			this.coordinates.setHeight(this.coordinates.getHeight() + 2);
+			this.coordinates.setLongitude(this.coordinates.getLongitude() + 2);
+			this.coordinates.setHeight(this.coordinates.getHeight() + 4);
 			Logger.getLogger().printMessage(this.generateIdentifier() + ": SUN");
 		}
 		else if (weather.compareTo("RAIN") == 0)
 		{
-			this.coordinates.setLongitude(this.coordinates.getLongitude() + 5);
+			this.coordinates.setHeight(this.coordinates.getHeight() - 5);
 			Logger.getLogger().printMessage(this.generateIdentifier() + ": RAIN");
 		}
 		else if (weather.compareTo("FOG") == 0)
 		{
-			this.coordinates.setLongitude(this.coordinates.getLongitude() + 1);
+			this.coordinates.setHeight(this.coordinates.getHeight() - 3);
 			Logger.getLogger().printMessage(this.generateIdentifier() + ": FOG");
 		}
 		else if (weather.compareTo("SNOW") == 0)
 		{
-			this.coordinates.setHeight(this.coordinates.getHeight() - 12);
+			this.coordinates.setHeight(this.coordinates.getHeight() - 15);
 			Logger.getLogger().printMessage(this.generateIdentifier() + ": SNOW");
 		}
 		else
@@ -75,7 +75,7 @@ public class Helicopter extends Aircraft implements Flyable
 	{
 		String tmp;
 
-		tmp = "Helicopter#" + this.name + "(" + String.valueOf(this.id) + ")";
+		tmp = "Baloon#" + this.name + "(" + String.valueOf(this.id) + ")";
 		return (tmp);
 	}
 }

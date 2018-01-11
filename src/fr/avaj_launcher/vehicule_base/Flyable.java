@@ -8,9 +8,9 @@ import java.io.IOException;
 
 public interface Flyable
 {
-	void updateConditions() throws IOException, UnknownWeatherException, UnregisteredTowerException;;
+	void updateConditions() throws IOException, UnknownWeatherException, UnregisteredTowerException;
 
-	void registerTower(WeatherTower WeatherTower);
+	void registerTower(WeatherTower WeatherTower) throws IOException;
 
 	String generateIdentifier();
 }
