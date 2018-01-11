@@ -1,11 +1,52 @@
 package fr.avaj_launcher.boot;
 
 import fr.avaj_launcher.exception.TooMuchAircraftException;
+import fr.avaj_launcher.vehicule_base.Aircraft;
+import fr.avaj_launcher.vehicule_base.Flyable;
+import fr.avaj_launcher.vehicule_factory.AircraftFactory;
+import fr.avaj_launcher.vehicule_observer.WeatherTower;
 
 public class Main
 {
 	public static void main(String args[]) throws TooMuchAircraftException
 	{
-		System.out.println("Hello World");
+		AircraftFactory factory = null;
+		Flyable tmp = null;
+		WeatherTower wt = null;
+		int nb_iter = 5;
+
+		try
+		{
+			System.out.println("Generating AircraftFactory");
+			factory = new AircraftFactory();
+
+			System.out.println("Generating Weather Tower");
+			wt = new WeatherTower();
+
+			System.out.println("Generating JetPlane");
+			tmp = factory.newAircraft("JetPlane", "Totor", -200, 200, 50);
+			System.out.println("Registering Weather Tower to JetPlane");
+			tmp.registerTower(wt);
+			System.out.println("Registering JetPlane to Tower");
+			wt.register(tmp);
+
+			System.out.println("Generating Baloon");
+			tmp = factory.newAircraft("Baloon", "Toto", 200, -200, 99);
+			tmp.registerTower(wt);
+			wt.register(tmp);
+
+			System.out.println("Generating Helicopter");
+			tmp = factory.newAircraft("Helicopter", "Peon", 200, 400, 30);
+			tmp.registerTower(wt);
+			wt.register(tmp);
+
+			System.out.println("Running Simulation");
+			for (int i = nb_iter; i > 0; i--)
+				wt.changeWeather();
+		}
+		catch (Exception e)
+		{
+			System.out.println(e.getMessage());
+		}
 	}
 }

@@ -8,6 +8,7 @@ import fr.avaj_launcher.exception.UnknownWeatherException;
 import fr.avaj_launcher.exception.UnregisteredTowerException;
 import fr.avaj_launcher.logger.Logger;
 import fr.avaj_launcher.vehicule_base.Flyable;
+import fr.avaj_launcher.weather_control.WeatherProvider;
 
 public abstract class Tower
 {

@@ -1,10 +1,24 @@
 package fr.avaj_launcher.vehicule_observer;
 
+import fr.avaj_launcher.exception.UnknownAircraftTypeException;
+import fr.avaj_launcher.exception.UnknownWeatherException;
+import fr.avaj_launcher.exception.UnregisteredTowerException;
 import fr.avaj_launcher.vehicule_base.Coordinates;
 import fr.avaj_launcher.weather_control.WeatherProvider;
 
+import java.io.IOException;
+
 public class WeatherTower extends Tower
 {
+	/*
+		Constructor
+	 */
+
+	public WeatherTower()
+	{
+		super();
+	}
+
 	/*
 		Methods
      */
@@ -14,8 +28,10 @@ public class WeatherTower extends Tower
 		return (WeatherProvider.getProvider().getCurrentWeather(coordinates));
 	}
 
-	public void changeWeather()
+	public void changeWeather() throws IOException, UnknownAircraftTypeException, UnregisteredTowerException,
+			UnknownWeatherException
 	{
 		WeatherProvider.getProvider().newSeed();
+		this.conditionsChanged();
 	}
 }

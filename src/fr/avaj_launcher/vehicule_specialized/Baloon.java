@@ -33,7 +33,7 @@ public class Baloon extends Aircraft implements Flyable
 	 */
 
 	@Override
-	public void registerTower(WeatherTower WeatherTower) throws IOException
+	public void registerTower(WeatherTower weatherTower) throws IOException
 	{
 		this.weatherTower = weatherTower;
 		this.weatherTower.register(this);
@@ -68,6 +68,10 @@ public class Baloon extends Aircraft implements Flyable
 		}
 		else
 			throw new UnknownWeatherException();
+		if (this.coordinates.getHeight() > 100)
+			this.coordinates.setHeight(100);
+		else if (this.coordinates.getHeight() <= 0)
+			this.weatherTower.unregister(this);
 	}
 
 	@Override
