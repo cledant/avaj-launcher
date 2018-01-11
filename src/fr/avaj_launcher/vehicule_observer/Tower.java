@@ -1,8 +1,11 @@
 package fr.avaj_launcher.vehicule_observer;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import fr.avaj_launcher.exception.UnknownWeatherException;
+import fr.avaj_launcher.exception.UnregisteredTowerException;
 import fr.avaj_launcher.vehicule_base.Flyable;
 
 public abstract class Tower
@@ -36,7 +39,7 @@ public abstract class Tower
 		this.observers.remove(flyable);
 	}
 
-	protected void conditionsChanged()
+	protected void conditionsChanged() throws IOException, UnknownWeatherException, UnregisteredTowerException
 	{
 		Iterator<Flyable> it = this.observers.iterator();
 
