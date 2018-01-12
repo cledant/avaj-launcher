@@ -102,7 +102,6 @@ public class Main
 			System.out.println("Too much arguments");
 		else
 		{
-//			testMain1();
 			try
 			{
 				Logger.getLogger().closeFile();

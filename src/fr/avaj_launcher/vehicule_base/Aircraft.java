@@ -1,5 +1,6 @@
 package fr.avaj_launcher.vehicule_base;
 
+import fr.avaj_launcher.exception.InvalidAircraftHeightException;
 import fr.avaj_launcher.exception.TooMuchAircraftException;
 
 public abstract class Aircraft
@@ -18,8 +19,10 @@ public abstract class Aircraft
 		Constructor
      */
 
-	protected Aircraft(String name, Coordinates coordinates) throws TooMuchAircraftException
+	protected Aircraft(String name, Coordinates coordinates) throws TooMuchAircraftException, InvalidAircraftHeightException
 	{
+		if (coordinates.getHeight() <= 0 || coordinates.getHeight() > 100)
+			throw new InvalidAircraftHeightException();
 		this.coordinates = coordinates;
 		this.name = name;
 		this.id = Aircraft.nextId();
