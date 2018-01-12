@@ -19,11 +19,12 @@
 ehthumbs.db
 Thumbs.db
 
-# CLION FOLDERS #
-#######################
+# JETBRAIN FOLDERS #
+####################
 cmake-build-debug
 cmake-build-release
 .idea
+out
 
 # CMAKE BUILD DIR #
 ###################
