@@ -1,14 +1,19 @@
 package fr.avaj_launcher.boot;
 
+import fr.avaj_launcher.exception.InvalidCycleNumberException;
 import fr.avaj_launcher.exception.TooMuchAircraftException;
 import fr.avaj_launcher.logger.Logger;
+import fr.avaj_launcher.simulator.Parser;
+import fr.avaj_launcher.simulator.Simulator;
 import fr.avaj_launcher.vehicule_base.Flyable;
 import fr.avaj_launcher.vehicule_factory.AircraftFactory;
 import fr.avaj_launcher.vehicule_observer.WeatherTower;
 
+import java.io.IOException;
+
 public class Main
 {
-	private static void testMain1() throws TooMuchAircraftException
+	private static void testFactoryAndWeatherTower() throws TooMuchAircraftException
 	{
 		AircraftFactory factory = null;
 		Flyable tmp = null;
@@ -94,6 +99,13 @@ public class Main
 		}
 	}
 
+	private static void run(String[] args) throws IOException, InvalidCycleNumberException
+	{
+		Simulator simu =  new Simulator(args[0]);
+
+		simu.parseCycleNumber();
+	}
+
 	public static void main(String[] args) throws TooMuchAircraftException
 	{
 		if (args.length == 0)
@@ -102,6 +114,14 @@ public class Main
 			System.out.println("Too much arguments");
 		else
 		{
+			try
+			{
+				run(args);
+			}
+			catch (Exception e)
+			{
+				System.out.println(e.getMessage());
+			}
 			try
 			{
 				Logger.getLogger().closeFile();

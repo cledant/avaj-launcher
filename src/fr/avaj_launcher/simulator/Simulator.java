@@ -33,12 +33,15 @@ public class Simulator
 		Methods
 	 */
 
-	public void parseCycleNumber(String line)
+	public void parseCycleNumber() throws IOException, InvalidCycleNumberException
 	{
 		this.cycle_nb = parser.parseCycleNumber();
+		if (this.cycle_nb <= 0)
+			throw new InvalidCycleNumberException();
+		System.out.println(this.cycle_nb);
 	}
 
-	public void parseAircraft(String line) throws TooMuchAircraftException, UnknownAircraftTypeException, InvalidAircraftHeightException,
+	public void parseAircraft() throws TooMuchAircraftException, UnknownAircraftTypeException, InvalidAircraftHeightException,
 			IOException
 	{
 		AircraftParsingData data = new AircraftParsingData();

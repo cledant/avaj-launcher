@@ -25,10 +25,7 @@ public class Logger
 	public static Logger getLogger() throws IOException
 	{
 		if (logger == null)
-		{
-			System.out.println("Generating Logger");
 			logger = new Logger();
-		}
 		return (logger);
 	}
 

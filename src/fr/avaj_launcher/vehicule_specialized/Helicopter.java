@@ -1,8 +1,6 @@
 package fr.avaj_launcher.vehicule_specialized;
 
-import fr.avaj_launcher.exception.TooMuchAircraftException;
-import fr.avaj_launcher.exception.UnknownWeatherException;
-import fr.avaj_launcher.exception.UnregisteredTowerException;
+import fr.avaj_launcher.exception.*;
 import fr.avaj_launcher.logger.Logger;
 import fr.avaj_launcher.vehicule_base.Aircraft;
 import fr.avaj_launcher.vehicule_base.Coordinates;
@@ -24,7 +22,7 @@ public class Helicopter extends Aircraft implements Flyable
 		Constructor
 	 */
 
-	public Helicopter(String name, Coordinates coordinates) throws TooMuchAircraftException
+	public Helicopter(String name, Coordinates coordinates) throws TooMuchAircraftException, InvalidAircraftHeightException
 	{
 		super(name, coordinates);
 		this.identifier = "Helicopter#" + this.name + "(" + String.valueOf(this.id) + ")";

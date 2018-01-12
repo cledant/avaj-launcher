@@ -1,5 +1,6 @@
 package fr.avaj_launcher.vehicule_specialized;
 
+import fr.avaj_launcher.exception.InvalidAircraftHeightException;
 import fr.avaj_launcher.exception.TooMuchAircraftException;
 import fr.avaj_launcher.exception.UnknownWeatherException;
 import fr.avaj_launcher.exception.UnregisteredTowerException;
@@ -24,7 +25,7 @@ public class Baloon extends Aircraft implements Flyable
 		Constructor
 	 */
 
-	public Baloon(String name, Coordinates coordinates) throws TooMuchAircraftException
+	public Baloon(String name, Coordinates coordinates) throws TooMuchAircraftException, InvalidAircraftHeightException
 	{
 		super(name, coordinates);
 		this.identifier = "Baloon#" + this.name + "(" + String.valueOf(this.id) + ")";
