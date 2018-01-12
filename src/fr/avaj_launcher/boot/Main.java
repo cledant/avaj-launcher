@@ -8,7 +8,7 @@ import fr.avaj_launcher.vehicule_observer.WeatherTower;
 
 public class Main
 {
-	public static void testMain1() throws TooMuchAircraftException
+	private static void testMain1() throws TooMuchAircraftException
 	{
 		AircraftFactory factory = null;
 		Flyable tmp = null;
@@ -96,14 +96,21 @@ public class Main
 
 	public static void main(String[] args) throws TooMuchAircraftException
 	{
-		testMain1();
-		try
+		if (args.length == 0)
+			System.out.println("Not enough argument");
+		else if (args.length > 1)
+			System.out.println("Too much arguments");
+		else
 		{
-			Logger.getLogger().closeFile();
-		}
-		catch (Exception e)
-		{
-			System.out.println("Failed to close simulation.txt");
+//			testMain1();
+			try
+			{
+				Logger.getLogger().closeFile();
+			}
+			catch (Exception e)
+			{
+				System.out.println("Failed to close simulation.txt");
+			}
 		}
 	}
 }
