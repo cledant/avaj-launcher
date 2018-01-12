@@ -74,7 +74,7 @@ public class Helicopter extends Aircraft implements Flyable
 		}
 		else
 			throw new UnknownWeatherException();
-		System.out.println("DEBUT");
+//		System.out.println("DEBUT");
 		if (this.coordinates.getHeight() > 100)
 			this.coordinates = new Coordinates(this.coordinates.getLongitude(), this.coordinates.getLongitude(),
 					100);
@@ -86,6 +86,6 @@ public class Helicopter extends Aircraft implements Flyable
 					" " + this.coordinates.getLatitude() + " " + this.coordinates.getHeight());
 			this.weatherTower.unregister(this);
 		}
-		System.out.println("FIN");
+//		System.out.println("FIN");
 	}
 }

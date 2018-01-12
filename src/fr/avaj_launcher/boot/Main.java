@@ -1,7 +1,6 @@
 package fr.avaj_launcher.boot;
 
 import fr.avaj_launcher.exception.TooMuchAircraftException;
-import fr.avaj_launcher.vehicule_base.Aircraft;
 import fr.avaj_launcher.vehicule_base.Flyable;
 import fr.avaj_launcher.vehicule_factory.AircraftFactory;
 import fr.avaj_launcher.vehicule_observer.WeatherTower;
