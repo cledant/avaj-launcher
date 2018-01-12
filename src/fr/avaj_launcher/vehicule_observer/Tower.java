@@ -40,17 +40,12 @@ public abstract class Tower
 	{
 		int index = this.observers.indexOf(flyable);
 
-//		System.out.println("AAA");
-//		System.out.println(index);
 		if (index != 0)
 			this.lit = this.observers.listIterator(index);
 		else
 			this.lit = this.observers.listIterator();
 		this.lit.next();
-//		System.out.println("CCC");
 		this.lit.remove();
-//		System.out.println(this.observers);
-//		System.out.println("BBB");
 	}
 
 	protected void conditionsChanged() throws IOException, UnknownWeatherException, UnregisteredTowerException
@@ -62,11 +57,8 @@ public abstract class Tower
 		while (loop)
 		{
 			tmp = this.lit.next();
-//			System.out.println(tmp);
 			tmp.updateConditions();
 			loop = this.lit.hasNext();
-//			System.out.println(this.observers);
-//			System.out.println(this.lit);
 		}
 	}
 }

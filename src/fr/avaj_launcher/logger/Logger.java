@@ -13,7 +13,7 @@ public class Logger
 		Constructor
 	 */
 
-	private Logger() throws FileNotFoundException, IOException
+	private Logger() throws IOException
 	{
 		printWriter = new PrintWriter("./simulation.txt");
 	}
@@ -22,7 +22,7 @@ public class Logger
 		Methods
 	 */
 
-	public static Logger getLogger() throws FileNotFoundException, IOException
+	public static Logger getLogger() throws IOException
 	{
 		if (logger == null)
 		{
@@ -34,7 +34,11 @@ public class Logger
 
 	public void printMessage(String msg) throws IOException
 	{
-		System.out.println(msg);
 		this.printWriter.println(msg);
+	}
+
+	public void closeFile()
+	{
+		this.printWriter.close();
 	}
 }

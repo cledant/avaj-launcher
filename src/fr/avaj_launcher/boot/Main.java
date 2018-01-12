@@ -1,13 +1,14 @@
 package fr.avaj_launcher.boot;
 
 import fr.avaj_launcher.exception.TooMuchAircraftException;
+import fr.avaj_launcher.logger.Logger;
 import fr.avaj_launcher.vehicule_base.Flyable;
 import fr.avaj_launcher.vehicule_factory.AircraftFactory;
 import fr.avaj_launcher.vehicule_observer.WeatherTower;
 
 public class Main
 {
-	public static void main(String args[]) throws TooMuchAircraftException
+	public static void testMain1() throws TooMuchAircraftException
 	{
 		AircraftFactory factory = null;
 		Flyable tmp = null;
@@ -37,6 +38,51 @@ public class Main
 			System.out.println("Registering Weather Tower to Helicopter");
 			tmp.registerTower(wt);
 
+			System.out.println("Generating JetPlane");
+			tmp = factory.newAircraft("JetPlane", "Totor", -200, 200, 50);
+			System.out.println("Registering Weather Tower to JetPlane");
+			tmp.registerTower(wt);
+
+			System.out.println("Generating Baloon");
+			tmp = factory.newAircraft("Baloon", "Toto", 200, -200, 99);
+			System.out.println("Registering Weather Tower to Baloon");
+			tmp.registerTower(wt);
+
+			System.out.println("Generating Helicopter");
+			tmp = factory.newAircraft("Helicopter", "Peon", 200, 400, 30);
+			System.out.println("Registering Weather Tower to Helicopter");
+			tmp.registerTower(wt);
+
+			System.out.println("Generating JetPlane");
+			tmp = factory.newAircraft("JetPlane", "Totor", -200, 200, 50);
+			System.out.println("Registering Weather Tower to JetPlane");
+			tmp.registerTower(wt);
+
+			System.out.println("Generating Baloon");
+			tmp = factory.newAircraft("Baloon", "Toto", 200, -200, 99);
+			System.out.println("Registering Weather Tower to Baloon");
+			tmp.registerTower(wt);
+
+			System.out.println("Generating Helicopter");
+			tmp = factory.newAircraft("Helicopter", "Peon", 200, 400, 30);
+			System.out.println("Registering Weather Tower to Helicopter");
+			tmp.registerTower(wt);
+
+			System.out.println("Generating JetPlane");
+			tmp = factory.newAircraft("JetPlane", "Totor", -200, 200, 50);
+			System.out.println("Registering Weather Tower to JetPlane");
+			tmp.registerTower(wt);
+
+			System.out.println("Generating Baloon");
+			tmp = factory.newAircraft("Baloon", "Toto", 200, -200, 99);
+			System.out.println("Registering Weather Tower to Baloon");
+			tmp.registerTower(wt);
+
+			System.out.println("Generating Helicopter");
+			tmp = factory.newAircraft("Helicopter", "Peon", 200, 400, 30);
+			System.out.println("Registering Weather Tower to Helicopter");
+			tmp.registerTower(wt);
+
 			System.out.println("Running Simulation");
 			for (int i = nb_iter; i > 0; i--)
 				wt.changeWeather();
@@ -45,6 +91,19 @@ public class Main
 		catch (Exception e)
 		{
 			System.out.println(e.getMessage());
+		}
+	}
+
+	public static void main(String[] args) throws TooMuchAircraftException
+	{
+		testMain1();
+		try
+		{
+			Logger.getLogger().closeFile();
+		}
+		catch (Exception e)
+		{
+			System.out.println("Failed to close simulation.txt");
 		}
 	}
 }
