@@ -1,6 +1,8 @@
 package fr.avaj_launcher.simulator;
 
+import fr.avaj_launcher.exception.InvalidAircraftFormatException;
 import fr.avaj_launcher.exception.InvalidCycleNumberException;
+import fr.avaj_launcher.vehicule_base.Coordinates;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -50,9 +52,31 @@ public class Parser
 		}
 	}
 
-	public AircraftParsingData parseAircraft()
+	public AircraftParsingData parseAircraft() throws InvalidAircraftFormatException, IOException
 	{
-		//do again other things
-		return (new AircraftParsingData());
+		String line = null;
+		String[] split = null;
+		AircraftParsingData data = new AircraftParsingData();
+
+		if ((line = this.br.readLine()) == null)
+		{
+			data.endOfFile = true;
+			return (data);
+		}
+		split = line.split("\\s");
+		if (split.length != 5)
+			throw new InvalidAircraftFormatException();
+		data.aircraftType = split[0];
+		data.aircraftName = split[1];
+		try
+		{
+			data.coordinates = new Coordinates(Integer.valueOf(split[2]), Integer.valueOf(split[3]),
+					Integer.valueOf(split[4]));
+			return (data);
+		}
+		catch (Exception e)
+		{
+			throw new InvalidAircraftFormatException();
+		}
 	}
 }

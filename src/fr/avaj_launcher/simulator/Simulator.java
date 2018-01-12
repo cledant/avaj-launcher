@@ -38,16 +38,15 @@ public class Simulator
 		this.cycle_nb = parser.parseCycleNumber();
 		if (this.cycle_nb <= 0)
 			throw new InvalidCycleNumberException();
-		System.out.println(this.cycle_nb);
 	}
 
 	public void parseAircraft() throws TooMuchAircraftException, UnknownAircraftTypeException, InvalidAircraftHeightException,
-			IOException
+			InvalidAircraftFormatException, IOException
 	{
 		AircraftParsingData data = new AircraftParsingData();
 		Flyable vehicule;
 
-		while (data.endOfFile)
+		while (!data.endOfFile)
 		{
 			data = this.parser.parseAircraft();
 			vehicule = this.af.newAircraft(data.aircraftType, data.aircraftName, data.coordinates.getLongitude(),
