@@ -46,9 +46,11 @@ public class Simulator
 		AircraftParsingData data = new AircraftParsingData();
 		Flyable vehicule;
 
-		while (!data.endOfFile)
+		while (true)
 		{
 			data = this.parser.parseAircraft();
+			if (data.endOfFile)
+				break ;
 			vehicule = this.af.newAircraft(data.aircraftType, data.aircraftName, data.coordinates.getLongitude(),
 					data.coordinates.getLatitude(), data.coordinates.getHeight());
 			vehicule.registerTower(this.wt);

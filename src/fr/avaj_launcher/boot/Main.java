@@ -108,7 +108,6 @@ public class Main
 		simu.parseCycleNumber();
 		simu.parseAircraft();
 		simu.simulate();
-
 	}
 
 	public static void main(String[] args) throws TooMuchAircraftException
