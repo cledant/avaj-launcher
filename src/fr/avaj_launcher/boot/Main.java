@@ -1,7 +1,6 @@
 package fr.avaj_launcher.boot;
 
-import fr.avaj_launcher.exception.InvalidCycleNumberException;
-import fr.avaj_launcher.exception.TooMuchAircraftException;
+import fr.avaj_launcher.exception.*;
 import fr.avaj_launcher.logger.Logger;
 import fr.avaj_launcher.simulator.Parser;
 import fr.avaj_launcher.simulator.Simulator;
@@ -99,11 +98,17 @@ public class Main
 		}
 	}
 
-	private static void run(String[] args) throws IOException, InvalidCycleNumberException
+	private static void run(String[] args) throws InvalidCycleNumberException, TooMuchAircraftException, UnknownAircraftTypeException,
+			InvalidAircraftHeightException, InvalidAircraftFormatException, UnknownWeatherException, UnregisteredTowerException,
+			IOException
+
 	{
-		Simulator simu =  new Simulator(args[0]);
+		Simulator simu = new Simulator(args[0]);
 
 		simu.parseCycleNumber();
+		simu.parseAircraft();
+		simu.simulate();
+
 	}
 
 	public static void main(String[] args) throws TooMuchAircraftException
