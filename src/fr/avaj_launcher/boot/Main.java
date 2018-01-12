@@ -19,7 +19,7 @@ public class Main
 		simu.simulate();
 	}
 
-	public static void main(String[] args) throws TooMuchAircraftException
+	public static void main(String[] args)
 	{
 		if (args.length == 0)
 			System.out.println("Not enough argument");
