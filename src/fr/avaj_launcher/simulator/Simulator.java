@@ -1,8 +1,8 @@
 package fr.avaj_launcher.simulator;
 
 import fr.avaj_launcher.exception.*;
-import fr.avaj_launcher.vehicule_base.Flyable;
-import fr.avaj_launcher.vehicule_factory.AircraftFactory;
+import fr.avaj_launcher.vehicule.Flyable;
+import fr.avaj_launcher.vehicule.AircraftFactory;
 import fr.avaj_launcher.vehicule_observer.WeatherTower;
 
 import java.io.IOException;

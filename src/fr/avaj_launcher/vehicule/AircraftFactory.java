@@ -1,13 +1,8 @@
-package fr.avaj_launcher.vehicule_factory;
+package fr.avaj_launcher.vehicule;
 
 import fr.avaj_launcher.exception.InvalidAircraftHeightException;
 import fr.avaj_launcher.exception.TooMuchAircraftException;
 import fr.avaj_launcher.exception.UnknownAircraftTypeException;
-import fr.avaj_launcher.vehicule_base.Coordinates;
-import fr.avaj_launcher.vehicule_base.Flyable;
-import fr.avaj_launcher.vehicule_specialized.JetPlane;
-import fr.avaj_launcher.vehicule_specialized.Baloon;
-import fr.avaj_launcher.vehicule_specialized.Helicopter;
 
 public class AircraftFactory
 {

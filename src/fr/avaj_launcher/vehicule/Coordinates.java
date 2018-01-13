@@ -1,4 +1,4 @@
-package fr.avaj_launcher.vehicule_base;
+package fr.avaj_launcher.vehicule;
 
 public class Coordinates
 {

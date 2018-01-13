@@ -1,18 +1,12 @@
-package fr.avaj_launcher.vehicule_specialized;
+package fr.avaj_launcher.vehicule;
 
-import fr.avaj_launcher.exception.InvalidAircraftHeightException;
-import fr.avaj_launcher.exception.TooMuchAircraftException;
-import fr.avaj_launcher.exception.UnknownWeatherException;
-import fr.avaj_launcher.exception.UnregisteredTowerException;
+import fr.avaj_launcher.exception.*;
 import fr.avaj_launcher.logger.Logger;
-import fr.avaj_launcher.vehicule_base.Aircraft;
-import fr.avaj_launcher.vehicule_base.Coordinates;
-import fr.avaj_launcher.vehicule_base.Flyable;
 import fr.avaj_launcher.vehicule_observer.WeatherTower;
 
 import java.io.IOException;
 
-public class Baloon extends Aircraft implements Flyable
+public class Helicopter extends Aircraft implements Flyable
 {
 	/*
 		Attributes
@@ -25,10 +19,10 @@ public class Baloon extends Aircraft implements Flyable
 		Constructor
 	 */
 
-	public Baloon(String name, Coordinates coordinates) throws TooMuchAircraftException, InvalidAircraftHeightException
+	public Helicopter(String name, Coordinates coordinates) throws TooMuchAircraftException, InvalidAircraftHeightException
 	{
 		super(name, coordinates);
-		this.identifier = "Baloon#" + this.name + "(" + String.valueOf(this.id) + ")";
+		this.identifier = "Helicopter#" + this.name + "(" + String.valueOf(this.id) + ")";
 	}
 
 	/*
@@ -51,26 +45,26 @@ public class Baloon extends Aircraft implements Flyable
 		String weather = this.weatherTower.getWeather(this.coordinates);
 		if (weather.compareTo("SUN") == 0)
 		{
-			this.coordinates = new Coordinates(this.coordinates.getLongitude() + 2,
-					this.coordinates.getLatitude(), this.coordinates.getHeight() + 4);
+			this.coordinates = new Coordinates(this.coordinates.getLongitude() + 10,
+					this.coordinates.getLatitude(), this.coordinates.getHeight() + 2);
 			Logger.getLogger().printMessage(this.identifier + ": SUN");
 		}
 		else if (weather.compareTo("RAIN") == 0)
 		{
-			this.coordinates = new Coordinates(this.coordinates.getLongitude(),
-					this.coordinates.getLatitude(), this.coordinates.getHeight() - 5);
+			this.coordinates = new Coordinates(this.coordinates.getLongitude() + 5,
+					this.coordinates.getLatitude(), this.coordinates.getHeight());
 			Logger.getLogger().printMessage(this.identifier + ": RAIN");
 		}
 		else if (weather.compareTo("FOG") == 0)
 		{
-			this.coordinates = new Coordinates(this.coordinates.getLongitude(),
-					this.coordinates.getLatitude(), this.coordinates.getHeight() - 3);
+			this.coordinates = new Coordinates(this.coordinates.getLongitude() + 1,
+					this.coordinates.getLatitude(), this.coordinates.getHeight());
 			Logger.getLogger().printMessage(this.identifier + ": FOG");
 		}
 		else if (weather.compareTo("SNOW") == 0)
 		{
 			this.coordinates = new Coordinates(this.coordinates.getLongitude(),
-					this.coordinates.getLatitude(), this.coordinates.getHeight() - 15);
+					this.coordinates.getLatitude(), this.coordinates.getHeight() - 12);
 			Logger.getLogger().printMessage(this.identifier + ": SNOW");
 		}
 		else

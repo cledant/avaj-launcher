@@ -2,7 +2,7 @@ package fr.avaj_launcher.simulator;
 
 import fr.avaj_launcher.exception.InvalidAircraftFormatException;
 import fr.avaj_launcher.exception.InvalidCycleNumberException;
-import fr.avaj_launcher.vehicule_base.Coordinates;
+import fr.avaj_launcher.vehicule.Coordinates;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;

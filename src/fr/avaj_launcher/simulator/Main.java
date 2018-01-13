@@ -1,8 +1,7 @@
-package fr.avaj_launcher.boot;
+package fr.avaj_launcher.simulator;
 
 import fr.avaj_launcher.exception.*;
 import fr.avaj_launcher.logger.Logger;
-import fr.avaj_launcher.simulator.Simulator;
 
 import java.io.IOException;
 

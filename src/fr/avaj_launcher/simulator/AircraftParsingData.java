@@ -1,6 +1,6 @@
 package fr.avaj_launcher.simulator;
 
-import fr.avaj_launcher.vehicule_base.Coordinates;
+import fr.avaj_launcher.vehicule.Coordinates;
 
 public class AircraftParsingData
 {

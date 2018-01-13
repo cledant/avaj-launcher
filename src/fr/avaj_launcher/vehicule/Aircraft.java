@@ -1,4 +1,4 @@
-package fr.avaj_launcher.vehicule_base;
+package fr.avaj_launcher.vehicule;
 
 import fr.avaj_launcher.exception.InvalidAircraftHeightException;
 import fr.avaj_launcher.exception.TooMuchAircraftException;

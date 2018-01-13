@@ -3,7 +3,7 @@ package fr.avaj_launcher.vehicule_observer;
 import fr.avaj_launcher.exception.UnknownAircraftTypeException;
 import fr.avaj_launcher.exception.UnknownWeatherException;
 import fr.avaj_launcher.exception.UnregisteredTowerException;
-import fr.avaj_launcher.vehicule_base.Coordinates;
+import fr.avaj_launcher.vehicule.Coordinates;
 import fr.avaj_launcher.weather_control.WeatherProvider;
 
 import java.io.IOException;

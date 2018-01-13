@@ -6,7 +6,7 @@ import java.util.ListIterator;
 
 import fr.avaj_launcher.exception.UnknownWeatherException;
 import fr.avaj_launcher.exception.UnregisteredTowerException;
-import fr.avaj_launcher.vehicule_base.Flyable;
+import fr.avaj_launcher.vehicule.Flyable;
 
 public abstract class Tower
 {
