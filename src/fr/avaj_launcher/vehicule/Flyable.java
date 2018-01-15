@@ -10,5 +10,5 @@ public interface Flyable
 {
 	void updateConditions() throws IOException, UnknownWeatherException, UnregisteredTowerException;
 
-	void registerTower(WeatherTower weatherTower) throws IOException;
+	void registerTower(WeatherTower WeatherTower) throws IOException;
 }

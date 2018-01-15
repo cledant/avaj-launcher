@@ -30,9 +30,9 @@ public class Helicopter extends Aircraft implements Flyable
 	 */
 
 	@Override
-	public void registerTower(WeatherTower weatherTower) throws IOException
+	public void registerTower(WeatherTower WeatherTower) throws IOException
 	{
-		this.weatherTower = weatherTower;
+		this.weatherTower = WeatherTower;
 		this.weatherTower.register(this);
 		Logger.getLogger().printMessage("Tower says : " + this.identifier + " registered to Weather Tower");
 	}
@@ -47,25 +47,25 @@ public class Helicopter extends Aircraft implements Flyable
 		{
 			this.coordinates = new Coordinates(this.coordinates.getLongitude() + 10,
 					this.coordinates.getLatitude(), this.coordinates.getHeight() + 2);
-			Logger.getLogger().printMessage(this.identifier + ": SUN");
+			Logger.getLogger().printMessage(this.identifier + ": SUN - Another day in hell");
 		}
 		else if (weather.compareTo("RAIN") == 0)
 		{
 			this.coordinates = new Coordinates(this.coordinates.getLongitude() + 5,
 					this.coordinates.getLatitude(), this.coordinates.getHeight());
-			Logger.getLogger().printMessage(this.identifier + ": RAIN");
+			Logger.getLogger().printMessage(this.identifier + ": RAIN - I've always wondered if Helicopter could swim");
 		}
 		else if (weather.compareTo("FOG") == 0)
 		{
 			this.coordinates = new Coordinates(this.coordinates.getLongitude() + 1,
 					this.coordinates.getLatitude(), this.coordinates.getHeight());
-			Logger.getLogger().printMessage(this.identifier + ": FOG");
+			Logger.getLogger().printMessage(this.identifier + ": FOG - I should play Myst tonight");
 		}
 		else if (weather.compareTo("SNOW") == 0)
 		{
 			this.coordinates = new Coordinates(this.coordinates.getLongitude(),
 					this.coordinates.getLatitude(), this.coordinates.getHeight() - 12);
-			Logger.getLogger().printMessage(this.identifier + ": SNOW");
+			Logger.getLogger().printMessage(this.identifier + ": SNOW - My rotor is going to freeze !");
 		}
 		else
 			throw new UnknownWeatherException();

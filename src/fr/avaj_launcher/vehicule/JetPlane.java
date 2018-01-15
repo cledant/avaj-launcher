@@ -33,9 +33,9 @@ public class JetPlane extends Aircraft implements Flyable
 	 */
 
 	@Override
-	public void registerTower(WeatherTower weatherTower) throws IOException
+	public void registerTower(WeatherTower WeatherTower) throws IOException
 	{
-		this.weatherTower = weatherTower;
+		this.weatherTower = WeatherTower;
 		this.weatherTower.register(this);
 		Logger.getLogger().printMessage("Tower says : " + this.identifier + " registered to Weather Tower");
 	}
@@ -50,25 +50,25 @@ public class JetPlane extends Aircraft implements Flyable
 		{
 			this.coordinates = new Coordinates(this.coordinates.getLongitude(),
 					this.coordinates.getLatitude() + 10, this.coordinates.getHeight() + 2);
-			Logger.getLogger().printMessage(this.identifier + ": SUN");
+			Logger.getLogger().printMessage(this.identifier + ": SUN - I'm melting !");
 		}
 		else if (weather.compareTo("RAIN") == 0)
 		{
 			this.coordinates = new Coordinates(this.coordinates.getLongitude(),
 					this.coordinates.getLatitude() + 5, this.coordinates.getHeight() + 2);
-			Logger.getLogger().printMessage(this.identifier + ": RAIN");
+			Logger.getLogger().printMessage(this.identifier + ": RAIN - Wetter than water");
 		}
 		else if (weather.compareTo("FOG") == 0)
 		{
 			this.coordinates = new Coordinates(this.coordinates.getLongitude(),
 					this.coordinates.getLatitude() + 1, this.coordinates.getHeight() + 2);
-			Logger.getLogger().printMessage(this.identifier + ": FOG");
+			Logger.getLogger().printMessage(this.identifier + ": FOG - Kero kero !");
 		}
 		else if (weather.compareTo("SNOW") == 0)
 		{
 			this.coordinates = new Coordinates(this.coordinates.getLongitude(),
 					this.coordinates.getLatitude(), this.coordinates.getHeight() - 12);
-			Logger.getLogger().printMessage(this.identifier + ": SNOW");
+			Logger.getLogger().printMessage(this.identifier + ": SNOW - My name is John");
 		}
 		else
 			throw new UnknownWeatherException();
