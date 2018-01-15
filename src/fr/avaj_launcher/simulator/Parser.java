@@ -32,7 +32,7 @@ public class Parser
 		Methods
 	 */
 
-	public long parseCycleNumber() throws InvalidCycleNumberException, IOException
+	public int parseCycleNumber() throws InvalidCycleNumberException, IOException
 	{
 		String line = null;
 		String[] split = null;
@@ -44,7 +44,7 @@ public class Parser
 			throw new InvalidCycleNumberException();
 		try
 		{
-			return (Long.valueOf(split[0]));
+			return (Integer.valueOf(split[0]));
 		}
 		catch (Exception e)
 		{

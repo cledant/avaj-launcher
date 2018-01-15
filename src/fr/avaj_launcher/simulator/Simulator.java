@@ -16,7 +16,7 @@ public class Simulator
 	private Parser parser;
 	private AircraftFactory af;
 	private WeatherTower wt;
-	private long cycle_nb;
+	private int cycle_nb;
 
 	/*
 		Constructor
