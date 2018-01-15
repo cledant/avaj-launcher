@@ -17,29 +17,23 @@ public abstract class Tower
 	private ArrayList<Flyable> observers = null;
 	private ListIterator<Flyable> lit = null;
 
-	/*
-		Constructor
-	 */
-
-	public Tower()
-	{
-		this.observers = new ArrayList<Flyable>();
-	}
-
     /*
 		Methods
      */
 
 	public void register(Flyable flyable) throws IOException
 	{
+		if (this.observers == null)
+			this.observers = new ArrayList<Flyable>();
 		this.observers.add(flyable);
 		this.lit = this.observers.listIterator();
 	}
 
 	public void unregister(Flyable flyable) throws IOException
 	{
+		if (this.observers == null)
+			return ;
 		int index = this.observers.indexOf(flyable);
-
 		if (index != 0)
 			this.lit = this.observers.listIterator(index);
 		else
@@ -50,10 +44,12 @@ public abstract class Tower
 
 	protected void conditionsChanged() throws IOException, UnknownWeatherException, UnregisteredTowerException
 	{
-		this.lit = this.observers.listIterator();
 		Flyable tmp = null;
-		boolean loop = this.lit.hasNext();
 
+		if (this.observers == null)
+			return ;
+		this.lit = this.observers.listIterator();
+		boolean loop = this.lit.hasNext();
 		while (loop)
 		{
 			tmp = this.lit.next();

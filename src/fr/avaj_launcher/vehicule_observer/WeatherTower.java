@@ -11,15 +11,6 @@ import java.io.IOException;
 public class WeatherTower extends Tower
 {
 	/*
-		Constructor
-	 */
-
-	public WeatherTower()
-	{
-		super();
-	}
-
-	/*
 		Methods
      */
 
