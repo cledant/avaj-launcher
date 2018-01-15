@@ -71,11 +71,17 @@ public class Helicopter extends Aircraft implements Flyable
 		else
 			throw new UnknownWeatherException();
 		if (this.coordinates.getHeight() > 100)
-			this.coordinates = new Coordinates(this.coordinates.getLongitude(), this.coordinates.getLongitude(),
+			this.coordinates = new Coordinates(this.coordinates.getLongitude(), this.coordinates.getLatitude(),
 					100);
-		else if (this.coordinates.getHeight() <= 0)
+		else if (this.coordinates.getLatitude() < 0)
+			this.coordinates = new Coordinates(this.coordinates.getLongitude(),
+					this.coordinates.getLatitude() + Integer.MAX_VALUE, this.coordinates.getHeight());
+		else if (this.coordinates.getLongitude() < 0)
+			this.coordinates = new Coordinates(this.coordinates.getLongitude() + Integer.MAX_VALUE,
+					this.coordinates.getLatitude(), this.coordinates.getHeight());
+		if (this.coordinates.getHeight() <= 0)
 		{
-			this.coordinates = new Coordinates(this.coordinates.getLongitude(), this.coordinates.getLongitude(), 0);
+			this.coordinates = new Coordinates(this.coordinates.getLongitude(), this.coordinates.getLatitude(), 0);
 			Logger.getLogger().printMessage("Tower says : " + this.identifier + " unregistered from Weather Tower");
 			Logger.getLogger().printMessage(this.identifier + " : Landing coordinate = " + this.coordinates.getLongitude() +
 					" " + this.coordinates.getLatitude() + " " + this.coordinates.getHeight());

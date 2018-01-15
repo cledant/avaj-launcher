@@ -28,7 +28,7 @@ public abstract class Aircraft
 			throw new InvalidAircraftHeightException();
 		if (coordinates.getLongitude() < 0)
 			throw new InvalidAircraftLongitudeException();
-		if (coordinates.getLongitude() < 0)
+		if (coordinates.getLatitude() < 0)
 			throw new InvalidAircraftLatitudeException();
 		this.coordinates = coordinates;
 		this.name = name;
