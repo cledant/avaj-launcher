@@ -19,7 +19,8 @@ public class Helicopter extends Aircraft implements Flyable
 		Constructor
 	 */
 
-	public Helicopter(String name, Coordinates coordinates) throws TooMuchAircraftException, InvalidAircraftHeightException
+	public Helicopter(String name, Coordinates coordinates) throws TooMuchAircraftException, InvalidAircraftHeightException,
+			InvalidAircraftLatitudeException, InvalidAircraftLongitudeException
 	{
 		super(name, coordinates);
 		this.identifier = "Helicopter#" + this.name + "(" + String.valueOf(this.id) + ")";

@@ -1,13 +1,12 @@
 package fr.avaj_launcher.vehicule;
 
-import fr.avaj_launcher.exception.InvalidAircraftHeightException;
-import fr.avaj_launcher.exception.TooMuchAircraftException;
-import fr.avaj_launcher.exception.UnknownAircraftTypeException;
+import fr.avaj_launcher.exception.*;
 
 public class AircraftFactory
 {
 	public Flyable newAircraft(String type, String name, int longitude, int latitude, int height) throws UnknownAircraftTypeException,
-			TooMuchAircraftException, InvalidAircraftHeightException
+			TooMuchAircraftException, InvalidAircraftHeightException, InvalidAircraftLongitudeException,
+			InvalidAircraftLatitudeException
 	{
 		Flyable tmp = null;
 

@@ -41,7 +41,7 @@ public class Simulator
 	}
 
 	public void parseAircraft() throws TooMuchAircraftException, UnknownAircraftTypeException, InvalidAircraftHeightException,
-			InvalidAircraftFormatException, IOException
+			InvalidAircraftLatitudeException, InvalidAircraftLongitudeException, InvalidAircraftFormatException, IOException
 	{
 		AircraftParsingData data = new AircraftParsingData();
 		Flyable vehicule;
@@ -50,7 +50,7 @@ public class Simulator
 		{
 			data = this.parser.parseAircraft();
 			if (data.endOfFile)
-				break ;
+				break;
 			vehicule = this.af.newAircraft(data.aircraftType, data.aircraftName, data.coordinates.getLongitude(),
 					data.coordinates.getLatitude(), data.coordinates.getHeight());
 			vehicule.registerTower(this.wt);

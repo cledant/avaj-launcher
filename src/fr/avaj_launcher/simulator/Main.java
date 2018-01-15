@@ -8,8 +8,8 @@ import java.io.IOException;
 public class Main
 {
 	private static void run(String[] args) throws InvalidCycleNumberException, TooMuchAircraftException, UnknownAircraftTypeException,
-			InvalidAircraftHeightException, InvalidAircraftFormatException, UnknownWeatherException, UnregisteredTowerException,
-			IOException
+			InvalidAircraftHeightException, InvalidAircraftLongitudeException, InvalidAircraftLatitudeException,
+			InvalidAircraftFormatException, UnknownWeatherException, UnregisteredTowerException, IOException
 	{
 		Simulator simu = new Simulator(args[0]);
 
