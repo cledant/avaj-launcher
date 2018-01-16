@@ -4,8 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.ListIterator;
 
-import com.github.cledant42.exception.UnknownWeatherException;
-import com.github.cledant42.exception.UnregisteredTowerException;
+import com.github.cledant42.exception.*;
 import com.github.cledant42.vehicule.Flyable;
 
 public abstract class Tower

@@ -1,7 +1,6 @@
 package com.github.cledant42.simulator;
 
-import com.github.cledant42.exception.InvalidAircraftFormatException;
-import com.github.cledant42.exception.InvalidCycleNumberException;
+import com.github.cledant42.exception.*;
 import com.github.cledant42.vehicule.Coordinates;
 
 import java.io.BufferedReader;

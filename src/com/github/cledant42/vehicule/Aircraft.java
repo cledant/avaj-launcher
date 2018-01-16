@@ -1,9 +1,6 @@
 package com.github.cledant42.vehicule;
 
-import com.github.cledant42.exception.InvalidAircraftHeightException;
-import com.github.cledant42.exception.InvalidAircraftLatitudeException;
-import com.github.cledant42.exception.InvalidAircraftLongitudeException;
-import com.github.cledant42.exception.TooMuchAircraftException;
+import com.github.cledant42.exception.*;
 
 public abstract class Aircraft
 {

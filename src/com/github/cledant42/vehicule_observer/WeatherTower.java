@@ -1,8 +1,6 @@
 package com.github.cledant42.vehicule_observer;
 
-import com.github.cledant42.exception.UnknownAircraftTypeException;
-import com.github.cledant42.exception.UnknownWeatherException;
-import com.github.cledant42.exception.UnregisteredTowerException;
+import com.github.cledant42.exception.*;
 import com.github.cledant42.vehicule.Coordinates;
 import com.github.cledant42.weather_control.WeatherProvider;
 
