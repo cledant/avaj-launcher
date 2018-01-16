@@ -53,19 +53,19 @@ public class JetPlane extends Aircraft implements Flyable
 		else if (weather.compareTo("RAIN") == 0)
 		{
 			this.coordinates = new Coordinates(this.coordinates.getLongitude(),
-					this.coordinates.getLatitude() + 5, this.coordinates.getHeight() + 2);
+					this.coordinates.getLatitude() + 5, this.coordinates.getHeight());
 			Logger.getLogger().printMessage(this.identifier + ": RAIN - Wetter than water");
 		}
 		else if (weather.compareTo("FOG") == 0)
 		{
 			this.coordinates = new Coordinates(this.coordinates.getLongitude(),
-					this.coordinates.getLatitude() + 1, this.coordinates.getHeight() + 2);
+					this.coordinates.getLatitude() + 1, this.coordinates.getHeight());
 			Logger.getLogger().printMessage(this.identifier + ": FOG - Kero kero !");
 		}
 		else if (weather.compareTo("SNOW") == 0)
 		{
 			this.coordinates = new Coordinates(this.coordinates.getLongitude(),
-					this.coordinates.getLatitude(), this.coordinates.getHeight() - 12);
+					this.coordinates.getLatitude(), this.coordinates.getHeight() - 7);
 			Logger.getLogger().printMessage(this.identifier + ": SNOW - My name is John");
 		}
 		else
